@@ -138,14 +138,7 @@ set(ROCMINFO_CXX_FLAGS ${ROCMINFO_CXX_FLAGS} -fmerge-all-constants)
 set(ROCMINFO_CXX_FLAGS ${ROCMINFO_CXX_FLAGS} -fms-extensions)
 set(ROCMINFO_CXX_FLAGS ${ROCMINFO_CXX_FLAGS} -Werror)
 set(ROCMINFO_CXX_FLAGS ${ROCMINFO_CXX_FLAGS} -Wall)
-set(ROCMINFO_CXX_FLAGS ${ROCMINFO_CXX_FLAGS} -m64)
-
-#
-# Extend the compiler flags for 64-bit builds
-#
-if((${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "x86_64") OR (${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "AMD64"))
-  set(ROCMINFO_CXX_FLAGS ${ROCMINFO_CXX_FLAGS} -msse -msse2)
-endif()
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} $ENV{CXXFLAGS}")
 
 #
 # Add compiler flags to include symbol information for debug builds
