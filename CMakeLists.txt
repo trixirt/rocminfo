@@ -60,7 +60,7 @@ include(utils)
 find_package(hsa-runtime64 1.0 REQUIRED )
 
 string(TOLOWER "${ROCRTST_BLD_TYPE}" tmp)
-if("${tmp}" STREQUAL release)
+if(NOT "${tmp}" STREQUAL debug)
   set(BUILD_TYPE "Release")
   set(ISDEBUG 0)
 else()
